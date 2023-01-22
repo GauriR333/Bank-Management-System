@@ -22,7 +22,7 @@ public class Customer {
 		return cutomer_id;
 	}
 
-	public void setCutomer_id(int cutomer_id) {
+	public void setCutomer_id() {
 		this.cutomer_id = cutomer_id;
 	}
 
