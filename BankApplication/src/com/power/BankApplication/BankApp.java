@@ -1,11 +1,13 @@
 package com.power.BankApplication;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class BankApp {
 	public static void main(String args[]) {
 		BankApp bankapp1 = new BankApp();
 
+		ArrayList<Customer> customers = new ArrayList<Customer>();
 		int choice = 0;
 		while (choice != 9) {
 			System.out.print("--------------WELCOME-CITYBANK-----------------\n");
@@ -13,25 +15,27 @@ public class BankApp {
 			System.out.println("1. Customers ");
 			System.out.println("9. Exit");
 
-			System.out.println("Enter your choice: ");
+			System.out.print("Enter your choice: ");
 			Scanner sc = new Scanner(System.in);
 			int choiceNew = sc.nextInt();
 
 			switch (choiceNew) {
 			case 1:
-				System.out.println("1.Add Customer ");
-				System.out.println("2.Account Activites");
-				System.out.println("3.Show Customer Detail");
+				System.out.println("\t1. Add Customer ");
+				System.out.println("\t2. Account Activites");
+				System.out.println("\t3. Show Customer Detail");
 
-				System.out.println("Enter your choice: ");
+				System.out.print("\tEnter your choice: ");
 				Scanner sc2 = new Scanner(System.in);
 				int choice1 = sc.nextInt();
+
 				switch (choice1) {
 				case 1:
-					bankapp1.addCustomer();
+
+					bankapp1.addCustomer(customers);
 					break;
 				case 3:
-					bankapp1.showCustomerDetail();
+					bankapp1.showCustomerDetail(customers);
 					break;
 
 				default:
@@ -49,43 +53,47 @@ public class BankApp {
 		}
 	}
 
-	private void addCustomer() {
-		System.out.println("Fill-Up Cutomer information:-");
+	private void addCustomer(ArrayList<Customer> customers) {
+		System.out.println("\tFill-Up Cutomer information:-");
 		Customer customer1 = new Customer();
-		customer1.setCutomer_id();
-		System.out.println("Enter customer id: ");
+		System.out.print("\tEnter customer id: ");
 		Scanner sc = new Scanner(System.in);
 		int id = sc.nextInt();
+		customer1.setCutomer_id(id);
 
-		customer1.setCustomer_name(null);
-		System.out.println("Enter customer name");
+		System.out.print("\tEnter customer name: ");
 		Scanner sc1 = new Scanner(System.in);
 		String name = sc1.next();
+		customer1.setCustomer_name(name);
 
-		customer1.setCustomer_address(null);
-		System.out.println("Enter customer Address");
+		System.out.print("\tEnter customer Address: ");
 		Scanner sc2 = new Scanner(System.in);
 		String address = sc2.next();
+		customer1.setCustomer_address(address);
 
-		System.out.println("Enter customer phone number");
+		System.out.print("\tEnter customer phone number: ");
 		Scanner sc3 = new Scanner(System.in);
 		long phoneNumber = sc3.nextLong();
+		customer1.setPhone_no(phoneNumber);
 
-		System.out.println("Customer Detailes: ");
-		System.out.println("Id:" + id);
-		System.out.println("Name: " + name);
-		System.out.println("Address: " + address);
-		System.out.println("phone Number: " + phoneNumber);
-		// customer1.getCutomer_id();
-//		customer1.getCustomer_name();
-//		customer1.getCustomer_address();
+		customers.add(customer1);// customer1 object added into list
+
 	}
 
-	private void showCustomerDetail() {
-		System.out.println("Customer Detailes: ");
-		System.out.println("Id:");
-		System.out.println("Name: ");
-		System.out.println("Address: ");
-		System.out.println("phone Number: ");
+	private void showCustomerDetail(ArrayList<Customer> coustomers) {
+		System.out.println("\t---------------------Customer Detailes: -----------------------");
+		System.out.println("\tId" + "\t" + "Name" + "\t" + "Address" + "\t" + "Phone number");
+		for (Customer customer : coustomers) {
+			System.out.println("\t"+customer.getCutomer_id() + "\t" + customer.getCustomer_name() + "\t"
+					+ customer.getCustomer_address() + "\t" + customer.getPhone_no() + "\t");
+			// System.out.println("Name: " + customer.customer_name);
+			// System.out.println("Address: "+customer.customer_address);
+			// System.out.println("phone Number: " + customer.phone_no);
+
+			// customer1.getCutomer_id();
+//		customer1.getCustomer_name();
+//		customer1.getCustomer_address();
+		}
+		System.out.println("\t---------------------------------------------------------------");
 	}
 }

@@ -22,7 +22,7 @@ public class Customer {
 		return cutomer_id;
 	}
 
-	public void setCutomer_id() {
+	public void setCutomer_id(int cutomer_id) {
 		this.cutomer_id = cutomer_id;
 	}
 
@@ -49,6 +49,8 @@ public class Customer {
 	public void setPhone_no(long phone_no) {
 		this.phone_no = phone_no;
 	}
+
+	
 	
 
 }
