@@ -5,6 +5,7 @@ public class Customer {
 	String customer_name;
 	String customer_address;
 	long phone_no;
+	
 
 	public Customer() {
 

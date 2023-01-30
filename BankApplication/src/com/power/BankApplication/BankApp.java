@@ -3,28 +3,31 @@ package com.power.BankApplication;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import com.power.account.Account;
+import com.power.account.SavingAccount;
+
 public class BankApp {
 	public static void main(String args[]) {
-		
+
 		BankApp bankapp1 = new BankApp();
 
 		ArrayList<Customer> customers = new ArrayList<Customer>();
 		int choice = 0;
-		
+
 		while (choice != 9) {
 			System.out.print("--------------WELCOME-CITYBANK-----------------\n");
 
 			System.out.println("1. Customers ");
 			System.out.println("9. Exit");
 			System.out.print("Enter your choice: ");
-			
+
 			Scanner sc = new Scanner(System.in);
 			int choiceNew = sc.nextInt();
 
 			switch (choiceNew) {
 			case 1:
 				System.out.println("\t1. Add Customer ");
-				System.out.println("\t2. Account Activites");
+				System.out.println("\t2. Account Activities");
 				System.out.println("\t3. Show Customer Detail");
 
 				System.out.print("\tEnter your choice: ");
@@ -36,21 +39,46 @@ public class BankApp {
 					bankapp1.addCustomer(customers);
 					break;
 					
+				case 2:
+					Scanner sc3 =new Scanner(System.in);
+					System.out.println("\t\t1.Saving Account");
+					System.out.print("\t\tEnter Your choice: ");
+ 					int choice2=sc3.nextInt();
+					switch (choice2) {
+					case 1:
+						Account acc1 =  new SavingAccount(1234,"Acc1",2000);
+						System.out.println("\t\t1.Deposit ");
+						System.out.println("\t\t2.Withdrow ");
+						System.out.print("\t\tEnter Your choice: ");
+						int ch=sc3.nextInt();
+						 if (ch==1) {
+							 System.out.print("\t\tEnter amount to deposit: ");
+							 double amount=sc3.nextDouble();
+							 acc1.deposit(amount);
+						 } 
+						 
+						break;
+
+					default:
+						break;
+					}
+					break;
+
 				case 3:
 					bankapp1.showCustomerDetail(customers);
 					break;
 
 				default:
 					break;
-					
+
 				}
 
 				break;
-				
+
 			case 9:
 				choice = 9;
 				break;
-				
+
 			default:
 				System.out.println("Give right choice");
 				break;
@@ -59,10 +87,10 @@ public class BankApp {
 	}
 
 	private void addCustomer(ArrayList<Customer> customers) {
-		
+
 		System.out.println("\tFill-Up Cutomer information:-");
 		Customer customer1 = new Customer();
-		
+
 		System.out.print("\tEnter customer id: ");
 		Scanner sc = new Scanner(System.in);
 		int id = sc.nextInt();
@@ -88,7 +116,7 @@ public class BankApp {
 	}
 
 	private void showCustomerDetail(ArrayList<Customer> coustomers) {
-		
+
 		System.out.println("\t---------------------Customer Detailes: -----------------------");
 		System.out.println("\tId" + "\t" + "Name" + "\t" + "Address" + "\t" + "Phone number");
 
@@ -97,7 +125,7 @@ public class BankApp {
 					+ customer.getCustomer_address() + "\t" + customer.getPhone_no() + "\t");
 
 		}
-		
+
 		System.out.println("\t---------------------------------------------------------------");
 	}
 }
