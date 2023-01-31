@@ -46,24 +46,33 @@ public class BankApp {
 					int choice2 = sc3.nextInt();
 					switch (choice2) {
 					case 1:
-						Account acc1 = new SavingAccount(1234, "Acc1", 2000);
-						System.out.println("\t\t1.Deposit ");
-						System.out.println("\t\t2.Withdraw ");
-						System.out.print("\t\tEnter Your choice: ");
-						int ch = sc3.nextInt();
+						int exit;
+						Account acc1 = new SavingAccount(1234, "Acc1", 20000);
+						do {
+							System.out.println("\t\t1.Deposit ");
+							System.out.println("\t\t2.Withdraw ");
+							System.out.println("\t\t3.Check Blance ");
+							System.out.print("\t\tEnter Your choice: ");
+							int ch = sc3.nextInt();
 
-						if (ch == 1) {
-							System.out.print("\t\tEnter amount to deposit: ");
-							double amount = sc3.nextDouble();
-							acc1.deposit(amount);
-						}
-						if (ch == 2) {
-							System.out.print("\t\tEnter amount to withdraw: ");
-							double amount = sc3.nextDouble();
-							acc1.withdraw(amount);
-						}
-
-						break;
+							if (ch == 1) {
+								System.out.print("\t\tEnter amount to deposit: ");
+								double amount = sc3.nextDouble();
+								acc1.deposit(amount);
+							}
+							if (ch == 2) {
+								System.out.print("\t\tEnter amount to withdraw: ");
+								double amount = sc3.nextDouble();
+								acc1.withdraw(amount);
+							}
+							if (ch == 3) {
+								acc1.checkBalance();
+							}
+							System.out.println("");
+							System.out.println("press 1 to continue ! press 0 to exit");
+							System.out.println("");
+							break;
+						} while (exit != 0);
 
 					default:
 						break;

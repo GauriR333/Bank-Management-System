@@ -19,8 +19,16 @@ public class SavingAccount extends Account {
 	}
 
 	public void withdraw(double amount) {
-		setBalance(getBalance() - amount);
-		System.out.println("Your Amount is withdraw sucessfully your current balance is: " + getBalance());
+		if (getBalance() - amount > 10000) {
+			setBalance(getBalance() - amount);
+			System.out.println("Your Amount is withdraw sucessfully your current balance is: " + getBalance());
+		}
+		else {
+			System.out.println("");
+			System.out.println("\t\tInsufficent blance you must have atleast 10000 deposited in your account");
+			System.out.println("");
+		}
+		}
 	}
 
-}
+
