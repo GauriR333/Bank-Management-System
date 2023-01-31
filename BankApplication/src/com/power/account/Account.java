@@ -2,20 +2,34 @@ package com.power.account;
 
 public class Account {
 	private long accountNo;
-	private String accountName;
+	private int customerId;
 	private double balance;
-	
 
 	public Account() {
 
 	}
+
 	
-	public Account(long accountNo, String accountName, double balance) {
+
+	public int getCustomerId() {
+		return customerId;
+	}
+
+
+
+	public Account(long accountNo, int customerId, double balance) {
 		super();
 		this.accountNo = accountNo;
-		this.accountName = accountName;
+		this.customerId = customerId;
 		this.balance = balance;
 	}
+
+
+
+	public void setCustomerId(int customerId) {
+		this.customerId = customerId;
+	}
+
 
 
 	public long getAccountNo() {
@@ -26,13 +40,7 @@ public class Account {
 		this.accountNo = accountNo;
 	}
 
-	public String getAccountName() {
-		return accountName;
-	}
-
-	public void setAccountName(String accountName) {
-		this.accountName = accountName;
-	}
+	
 
 	public double getBalance() {
 		return balance;
@@ -41,13 +49,16 @@ public class Account {
 	public void setBalance(double amount) {
 		this.balance = amount;
 	}
+
 	public void deposit(double amount) {
-		
+
 	}
+
 	public void withdraw(double amount) {
-		
+
 	}
+
 	public void checkBalance() {
-		System.out.println();
+		System.out.println("your current blance is " + balance);
 	}
 }

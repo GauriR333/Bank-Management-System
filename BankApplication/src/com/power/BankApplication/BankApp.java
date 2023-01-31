@@ -12,10 +12,11 @@ public class BankApp {
 		BankApp bankapp1 = new BankApp();
 
 		ArrayList<Customer> customers = new ArrayList<Customer>();
+		ArrayList<SavingAccount> savingAccounts = new ArrayList<SavingAccount>();
 		int choice = 0;
 
 		while (choice != 9) {
-			System.out.print("--------------WELCOME-CITYBANK-----------------\n");
+			System.out.println("--------------WELCOME-CITYBANK-----------------");
 
 			System.out.println("1. Customers ");
 			System.out.println("9. Exit");
@@ -26,7 +27,7 @@ public class BankApp {
 
 			switch (choiceNew) {
 			case 1:
-				System.out.println("\t1. Add Customer ");
+				System.out.println("\n\t1. Add Customer ");
 				System.out.println("\t2. Account Activities");
 				System.out.println("\t3. Show Customer Detail");
 
@@ -41,39 +42,47 @@ public class BankApp {
 
 				case 2:
 					Scanner sc3 = new Scanner(System.in);
-					System.out.println("\t\t1.Saving Account");
+					System.out.println("\n\t\t1.Saving Account");
 					System.out.print("\t\tEnter Your choice: ");
 					int choice2 = sc3.nextInt();
 					switch (choice2) {
 					case 1:
-						int exit;
-						Account acc1 = new SavingAccount(1234, "Acc1", 20000);
+						int exit = 1;
+						// Account acc1 = new SavingAccount(1234, "125", 20000);
 						do {
-							System.out.println("\t\t1.Deposit ");
-							System.out.println("\t\t2.Withdraw ");
-							System.out.println("\t\t3.Check Blance ");
+							System.out.println("\n\t\t1. Deposit ");
+							System.out.println("\t\t2. Withdraw ");
+							System.out.println("\t\t3. Check Blance ");
+							System.out.println("\t\t4. Create Account");
+							System.out.println("\t\t5. Show All Accounts");
+							System.out.println("\t\t9.Back to main menu");
 							System.out.print("\t\tEnter Your choice: ");
 							int ch = sc3.nextInt();
 
 							if (ch == 1) {
 								System.out.print("\t\tEnter amount to deposit: ");
 								double amount = sc3.nextDouble();
-								acc1.deposit(amount);
-							}
-							if (ch == 2) {
+								// acc1.deposit(amount);
+
+							} else if (ch == 2) {
 								System.out.print("\t\tEnter amount to withdraw: ");
 								double amount = sc3.nextDouble();
-								acc1.withdraw(amount);
-							}
-							if (ch == 3) {
-								acc1.checkBalance();
-							}
-							System.out.println("");
-							System.out.println("press 1 to continue ! press 0 to exit");
-							System.out.println("");
-							break;
-						} while (exit != 0);
+								// acc1.withdraw(amount);
 
+							} else if (ch == 3) {
+								// acc1.checkBalance();
+
+							} else if (ch == 4) {
+								bankapp1.createSavingAccount(savingAccounts);
+
+							} else if (ch == 5) {
+								bankapp1.showAccount(savingAccounts);
+							} else if (ch == 9) {
+								exit = 9;
+							}
+
+						} while (exit != 9);
+						break;
 					default:
 						break;
 					}
@@ -142,5 +151,26 @@ public class BankApp {
 		}
 
 		System.out.println("\t---------------------------------------------------------------");
+	}
+
+	private void createSavingAccount(ArrayList<SavingAccount> savingAccounts) {
+		System.out.print("\n\t\tEnter customer Id:");
+		Scanner sc = new Scanner(System.in);
+		int cutomerId = sc.nextInt();
+		System.out.print("\t\tEnter account number:");
+		int accountNumber = sc.nextInt();
+
+		SavingAccount savingAcc = new SavingAccount();
+		savingAcc.setCustomerId(cutomerId);
+		savingAcc.setAccountNo(accountNumber);
+		 savingAccounts.add(savingAcc); // savingAccounts object add in ArrayList
+	}
+
+	private void showAccount(ArrayList<SavingAccount> savingAccounts) {
+		System.out.println("\n\t\tAccount details:");
+		System.out.println("\t\tCustomer Id\tAccount No.");
+		for (SavingAccount SavingAccount : savingAccounts) {
+			System.out.println("\t\t" + SavingAccount.getCustomerId() + "\t\t" + SavingAccount.getAccountNo());
+		}
 	}
 }
