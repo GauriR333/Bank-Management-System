@@ -38,25 +38,31 @@ public class BankApp {
 				case 1:
 					bankapp1.addCustomer(customers);
 					break;
-					
+
 				case 2:
-					Scanner sc3 =new Scanner(System.in);
+					Scanner sc3 = new Scanner(System.in);
 					System.out.println("\t\t1.Saving Account");
 					System.out.print("\t\tEnter Your choice: ");
- 					int choice2=sc3.nextInt();
+					int choice2 = sc3.nextInt();
 					switch (choice2) {
 					case 1:
-						Account acc1 =  new SavingAccount(1234,"Acc1",2000);
+						Account acc1 = new SavingAccount(1234, "Acc1", 2000);
 						System.out.println("\t\t1.Deposit ");
-						System.out.println("\t\t2.Withdrow ");
+						System.out.println("\t\t2.Withdraw ");
 						System.out.print("\t\tEnter Your choice: ");
-						int ch=sc3.nextInt();
-						 if (ch==1) {
-							 System.out.print("\t\tEnter amount to deposit: ");
-							 double amount=sc3.nextDouble();
-							 acc1.deposit(amount);
-						 } 
-						 
+						int ch = sc3.nextInt();
+
+						if (ch == 1) {
+							System.out.print("\t\tEnter amount to deposit: ");
+							double amount = sc3.nextDouble();
+							acc1.deposit(amount);
+						}
+						if (ch == 2) {
+							System.out.print("\t\tEnter amount to withdraw: ");
+							double amount = sc3.nextDouble();
+							acc1.withdraw(amount);
+						}
+
 						break;
 
 					default:

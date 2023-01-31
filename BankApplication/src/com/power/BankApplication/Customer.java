@@ -5,7 +5,6 @@ public class Customer {
 	String customer_name;
 	String customer_address;
 	long phone_no;
-	
 
 	public Customer() {
 
@@ -50,8 +49,5 @@ public class Customer {
 	public void setPhone_no(long phone_no) {
 		this.phone_no = phone_no;
 	}
-
-	
-	
 
 }

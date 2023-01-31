@@ -3,19 +3,18 @@ package com.power.account;
 public class Account {
 	private long accountNo;
 	private String accountName;
-	private double amount;
+	private double balance;
 	
 
 	public Account() {
 
 	}
 	
-
-	public Account(long accountNo, String accountName, double amount) {
+	public Account(long accountNo, String accountName, double balance) {
 		super();
 		this.accountNo = accountNo;
 		this.accountName = accountName;
-		this.amount = amount;
+		this.balance = balance;
 	}
 
 
@@ -35,17 +34,17 @@ public class Account {
 		this.accountName = accountName;
 	}
 
-	public double getAmount() {
-		return amount;
+	public double getBalance() {
+		return balance;
 	}
 
-	public void setAmount(double amount) {
-		this.amount = amount;
+	public void setBalance(double amount) {
+		this.balance = amount;
 	}
 	public void deposit(double amount) {
 		
 	}
-	public void withdrew() {
+	public void withdraw(double amount) {
 		
 	}
 	

@@ -1,7 +1,6 @@
 package com.power.account;
 
-public class SavingAccount extends Account{
-	
+public class SavingAccount extends Account {
 
 	public SavingAccount() {
 		super();
@@ -10,15 +9,18 @@ public class SavingAccount extends Account{
 
 	public SavingAccount(long accountNo, String accountName, double amount) {
 		super(accountNo, accountName, amount);
-		
+
 	}
 
 	public void deposit(double amount) {
-		
-		setAmount(getAmount()+amount);
-		System.out.println("----------------------------------------------------------------------------");
-		System.out.println("your Amount is deposited sucessfully ypur current balance is: "+getAmount());
-		System.out.println("----------------------------------------------------------------------------");
+
+		setBalance(getBalance() + amount);
+		System.out.println("your Amount is deposited sucessfully your current balance is: " + getBalance());
+	}
+
+	public void withdraw(double amount) {
+		setBalance(getBalance() - amount);
+		System.out.println("Your Amount is withdraw sucessfully your current balance is: " + getBalance());
 	}
 
 }
